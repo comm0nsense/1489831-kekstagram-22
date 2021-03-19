@@ -7,10 +7,13 @@ const ImageScale = {
 }
 const newImage = document.querySelector('#upload-file');
 const imageUpload = document.querySelector('.img-upload__overlay');
+const imageUploadForm = document.querySelector('.img-upload__form');
 const imageUploadPreview = imageUpload.querySelector('.img-upload__preview');
 const imageUploadCancel = document.querySelector('#upload-cancel');
 const imageScale = imageUpload.querySelector('.scale');
 const scaleControlValue = imageScale.querySelector('.scale__control--value');
+
+// let currentScale = parseInt(scaleControlValue.value);
 
 const onImageRescale = (evt) => {
   let currentScale = parseInt(scaleControlValue.value);
@@ -60,8 +63,8 @@ const onPictureUpload = () => {
 const onCancelUpload = () => {
   imageUpload.classList.add('hidden');
   document.querySelector('body').classList.remove('modal-open');
-  // imageUploadForm.reset();
-  newImage.reset();
+  imageUploadForm.reset();
+  // newImage.reset();
 
   document.removeEventListener('keydown', onUploadEscKeydown);
   imageUploadCancel.removeEventListener('click', onCancelUpload);
