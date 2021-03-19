@@ -1,7 +1,7 @@
 # Личный проект «Кекстаграм»
 
 * Студент: [Ольга](https://up.htmlacademy.ru/javascript/22/user/1489831).
-* Наставник: `Неизвестно`.
+* Наставник: [Владимир Артюхов](https://htmlacademy.ru/profile/artman).
 
 ---
 
