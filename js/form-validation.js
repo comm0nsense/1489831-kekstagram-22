@@ -3,8 +3,7 @@ import { imageUploadForm } from './upload-image.js';
 const COMMENT_MAX_LENGTH = 140;
 const HASHTAG_MAX_LENGTH = 20;
 const FIRST_SYMBOL = /^#/;
-// const HASHTAG_REGULAR = /^#[a-zа-я\d]/i;
-const HASHTAG_REGEXP = /^#[a-zа-я\d]/gi;
+const HASHTAG_REGEXP = /^#[a-zа-я]\d/gi;
 const testRegExp = /test/i;
 
 
