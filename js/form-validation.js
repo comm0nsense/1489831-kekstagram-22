@@ -19,8 +19,8 @@ const onHashTagInput = () => {
 
   if (!input.match(FIRST_SYMBOL)) {
     hashTag.setCustomValidity('ХешТег должен начинаться с решетки');
-    // } else if (!HASHTAG_REGULAR.test(input)) {
-  } else if (!testRegExp.test(input)) {
+  } else if (!input.match(HASHTAG_REGEXP)) {
+    // } else if (!testRegExp.test(input)) {
     hashTag.setCustomValidity('Только буквы или цифры');
   } else if (input.length > HASHTAG_MAX_LENGTH) {
     hashTag.setCustomValidity('Длина не более 20 символов');
