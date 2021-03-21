@@ -2,6 +2,7 @@ import { generateRandomPhotos } from './mock.js';
 import { renderPreviews } from './render-previews.js';
 import { isEscEvent } from './util.js';
 
+
 const photos = generateRandomPhotos(25);
 // console.log(photos);
 
@@ -57,6 +58,7 @@ const closeModal = () => {
   document.removeEventListener('keydown', onModalEscPress);
   modalCloseButton.removeEventListener('click', closeModal);
   picturesWrapper.addEventListener('click', onPictureClick);
+
 };
 
 
@@ -84,6 +86,7 @@ const onPictureClick = (evt) => {
     const selectedPreview = photos.find((photo) => photo.tag === Number(pictureTag));
 
     openModal(selectedPreview);
+
   }
 };
 

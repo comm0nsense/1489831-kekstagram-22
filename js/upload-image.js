@@ -1,4 +1,6 @@
 import { isEscEvent } from './util.js';
+import { enableFilter, disableFilter } from './image-filters.js'
+
 const ImageScale = {
   MAX: 100,
   MIN: 25,
@@ -68,11 +70,13 @@ const onPictureUpload = () => {
   imageUploadCancel.addEventListener('click', onCancelUpload);
   imageScale.addEventListener('click', onImageRescale);
 
+  enableFilter();
 };
 
 const onCancelUpload = () => {
   imageUpload.classList.add('hidden');
   document.querySelector('body').classList.remove('modal-open');
+  disableFilter();
   imageUploadForm.reset();
 
   document.removeEventListener('keydown', onUploadEscKeydown);
