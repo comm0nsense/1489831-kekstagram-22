@@ -48,7 +48,12 @@ const onImageRescale = (evt) => {
 const onUploadEscKeydown = (evt) => {
   if (isEscEvent(evt)) {
     evt.preventDefault();
-    onCancelUpload();
+    if (document.activeElement.getAttribute('class') === 'text__hashtags'
+      || document.activeElement.getAttribute('class') === 'text__description') {
+      document.activeElement.value = '';
+    } else {
+      onCancelUpload();
+    }
   }
 };
 
