@@ -32,8 +32,8 @@ const onHashtagInput = () => {
   hashtags.forEach( (hashtag) => {
     if(hashtag.length > HASHTAG_MAX_LENGTH) {
       validationErrors.push(validationMessages.length);
-    // } else if (hashtags.includes(hashtag)){
-      // validationErrors.push(validationMessages.same);
+    } else if (hashtags.indexOf(hashtag) !== hashtags.lastIndexOf(hashtag)){
+      validationErrors.push(validationMessages.same);
     } else if (!hashtag.match(HASHTAG_REGEXP) && hashtag !== ''){
       validationErrors.push(validationMessages.content);
     }
