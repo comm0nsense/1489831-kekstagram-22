@@ -37,7 +37,7 @@ const CommentsIdRange = {
 const generateRandomComments = () => {
 
   const getRandomMessages = (array) => {
-    let messages = [];
+    const messages = [];
     const length = getRandomInt(CommentMessagesLength.MIN, CommentMessagesLength.MAX);
     for (let i = 0; i < length; i++) {
       messages.push(getRandomArrayElement(array));
@@ -48,7 +48,7 @@ const generateRandomComments = () => {
 
   const commentsNumber = getRandomInt(CommentsNumberRange.MIN, CommentsNumberRange.MAX);
   const commentIds = getUniqueRandomNumbers(commentsNumber, CommentsIdRange.MIN, CommentsIdRange.MAX);
-  let comments = [];
+  const comments = [];
 
   for (let i = 0; i < commentsNumber; i++) {
     comments.push({
@@ -65,7 +65,7 @@ const generateRandomComments = () => {
 
 // Создает объекты с фото и помещает их в массив
 const generateRandomPhotos = (number) => {
-  let photos = [];
+  const photos = [];
   const photoIds = getUniqueRandomNumbers(25, 1, 25);
 
   for (let i = 0; i < number; i++) {

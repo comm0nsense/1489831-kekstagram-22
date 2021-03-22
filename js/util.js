@@ -4,13 +4,8 @@ const getRandomInt = (min, max) => {
   return Math.floor(Math.random() * (max - min + 1) + min); //The maximum is inclusive and the minimum is inclusive
 };
 
-
-const checkStringLength = (string, length) => string.length <= length;
-checkStringLength; // for ESLint Validation
-
-
 const getUniqueRandomNumbers = (length, min, max) => {
-  let arr = [];
+  const arr = [];
   while (arr.length < length) {
     const number = getRandomInt(min, max);
     if (arr.indexOf(number) === -1) arr.push(number);
@@ -23,9 +18,7 @@ const getRandomArrayElement = (array) => {
   return array[randomNumber];
 };
 
-const isEscEvent = (evt) => {
-  return evt.key === ('Escape' || 'Esc');
-}
+const isEscEvent = (evt) => evt.key === ('Escape' || 'Esc');
 
 export {
   getUniqueRandomNumbers,
