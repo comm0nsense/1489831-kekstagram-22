@@ -113,6 +113,7 @@ const disableFilter = () => {
   effectsSlider.noUiSlider.destroy();
   effectsList.removeEventListener('change', onEffectLevelChange);
   image.className = 'img-upload__preview';
+  sliderContainer.classList.add('hidden');
   image.style.filter = '';
   imageUploadForm.querySelector('#effect-none').checked = true;
   effectLevelValue.removeAttribute('min');

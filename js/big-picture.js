@@ -1,12 +1,12 @@
 import { generateRandomPhotos } from './mock.js';
-import { renderPreviews } from './render-previews.js';
+// import { renderPreviews } from './render-previews.js';
 import { isEscEvent } from './util.js';
 
-
+//
 const photos = generateRandomPhotos(25);
 // console.log(photos);
 
-renderPreviews(photos);
+// renderPreviews(photos);
 
 const bigPicture = document.querySelector('.big-picture');
 const bigPictureImg = bigPicture.querySelector('.big-picture__img img');
