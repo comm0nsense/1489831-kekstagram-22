@@ -113,7 +113,6 @@ const disableFilter = () => {
   effectsSlider.noUiSlider.destroy();
   effectsList.removeEventListener('change', onEffectLevelChange);
   image.className = 'img-upload__preview';
-  sliderContainer.classList.add('hidden');
   image.style.filter = '';
   imageUploadForm.querySelector('#effect-none').checked = true;
   effectLevelValue.removeAttribute('min');
@@ -122,4 +121,15 @@ const disableFilter = () => {
   effectLevelValue.value = '';
 }
 
-export { enableFilter, disableFilter }
+const resetFilter = () => {
+  sliderContainer.classList.add('hidden');
+  image.className = 'img-upload__preview';
+  image.style.filter = '';
+  imageUploadForm.querySelector('#effect-none').checked = true;
+  effectLevelValue.removeAttribute('min');
+  effectLevelValue.removeAttribute('max');
+  effectLevelValue.removeAttribute('step');
+  effectLevelValue.value = '';
+}
+
+export { enableFilter, disableFilter, resetFilter }
