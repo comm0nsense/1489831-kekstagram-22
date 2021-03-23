@@ -1,12 +1,12 @@
 import { setDefaults } from './submit-form.js';
-import { enableFilter } from './image-filters.js';
+// import { enableFilter } from './image-filters.js';
 
 const ALERT_SHOW_TIME = 5000;
 const ESC_KEYDOWN = ['Escape', 'Esc'];
 
 const modalContainer = document.querySelector('main');
-const successButton = document.querySelector('.success__button');
-const errorButton = document.querySelector('.error_button');
+// const successButton = document.querySelector('.success__button');
+// const errorButton = document.querySelector('.error_button');
 
 
 const successModalTemplate = document.querySelector('#success')
