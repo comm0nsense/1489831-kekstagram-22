@@ -1,5 +1,5 @@
-import { setDefaults } from './submit-form.js';
-// import { enableFilter } from './image-filters.js';
+// import { setDefaults } from './submit-form.js';
+import { onCancelUpload } from './upload-image.js';
 
 const ALERT_SHOW_TIME = 5000;
 const ESC_KEYDOWN = ['Escape', 'Esc'];
@@ -32,7 +32,8 @@ const showModal = (modal) => {
 
   const onCloseModal = () => {
     modal.remove();
-    setDefaults();
+    // setDefaults();
+    onCancelUpload();
     modal.removeEventListener('click', onCloseModal);
     document.removeEventListener('keydown', onModalEscKeydown);
   }

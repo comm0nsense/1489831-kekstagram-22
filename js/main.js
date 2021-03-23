@@ -1,9 +1,9 @@
 // import './mock.js';
 import { renderPreviews} from './render-previews.js';
 import { picturesWrapper, openModal} from './big-picture.js';
-import './upload-image.js';
-import './image-filters.js';
-import './form-validation.js';
+// import './upload-image.js';
+// import './image-filters.js';
+// import './form-validation.js';
 import { getData } from './api.js';
 import { showAlert } from './show-modal.js';
 import { submitForm } from './submit-form.js';

@@ -1,14 +1,14 @@
 import { imageUploadForm } from './upload-image.js';
 import { postData } from './api.js';
 import { showModal, newSuccessModal, newErrorModal} from './show-modal.js';
-import { resetFilter } from './image-filters.js';
+// import { resetFilter } from './image-filters.js';
 
 const POST_DATA_URL = 'https://22.javascript.pages.academy/kekstagram';
 
-const setDefaults = () => {
-  imageUploadForm.reset();
-  resetFilter();
-}
+// const setDefaults = () => {
+//   imageUploadForm.reset();
+//   resetFilter();
+// }
 
 const submitForm = () => {
   imageUploadForm.addEventListener('submit', (evt) => {
@@ -25,4 +25,4 @@ const submitForm = () => {
   })
 };
 
-export { submitForm, setDefaults };
+export { submitForm };
