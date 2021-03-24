@@ -20,6 +20,7 @@ const getRandomArrayElement = (array) => {
 
 const isEscEvent = (evt) => evt.key === ('Escape' || 'Esc');
 
+
 export {
   getUniqueRandomNumbers,
   getRandomArrayElement,

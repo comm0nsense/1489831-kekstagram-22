@@ -1,8 +1,9 @@
-const renderPreviews = (data) => {
+const pictureTemplate = document.querySelector('#picture').content;
 
-  const pictureTemplate = document.querySelector('#picture').content;
-  const picturesContainer = document.querySelector('.pictures');
-  const fragment = document.createDocumentFragment();
+const picturesContainer = document.querySelector('.pictures');
+const fragment = document.createDocumentFragment();
+
+const renderPreviews = (data) => {
 
   data.forEach(picture => {
 
@@ -20,4 +21,11 @@ const renderPreviews = (data) => {
   picturesContainer.appendChild(fragment);
 };
 
-export { renderPreviews }
+const cleanPreviews = () => {
+  const picturePreviews = picturesContainer.querySelectorAll('.picture');
+  picturePreviews.forEach((element) => {
+    element.remove();
+  });
+}
+
+export { renderPreviews, cleanPreviews }
