@@ -1,10 +1,6 @@
 const pictureTemplate = document.querySelector('#picture').content;
 
 const picturesContainer = document.querySelector('.pictures');
-
-
-// picturePreviews.forEach(item => console.log(item));
-
 const fragment = document.createDocumentFragment();
 
 const renderPreviews = (data) => {
@@ -26,9 +22,10 @@ const renderPreviews = (data) => {
 };
 
 const cleanPreviews = () => {
-  // picturePreviews.forEach((element) => {
-  //   element.remove();
-  // });
+  const picturePreviews = picturesContainer.querySelectorAll('.picture');
+  picturePreviews.forEach((element) => {
+    element.remove();
+  });
 }
 
 export { renderPreviews, cleanPreviews }
