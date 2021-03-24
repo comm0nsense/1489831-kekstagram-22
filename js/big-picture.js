@@ -1,12 +1,12 @@
-import { generateRandomPhotos } from './mock.js';
-import { renderPreviews } from './render-previews.js';
+// import { generateRandomPhotos } from './mock.js';
+// import { renderPreviews } from './render-previews.js';
 import { isEscEvent } from './util.js';
 
-
-const photos = generateRandomPhotos(25);
+//
+// const photos = generateRandomPhotos(25);
 // console.log(photos);
 
-renderPreviews(photos);
+// renderPreviews(photos);
 
 const bigPicture = document.querySelector('.big-picture');
 const bigPictureImg = bigPicture.querySelector('.big-picture__img img');
@@ -45,7 +45,7 @@ const onModalEscPress = (evt) => {
     bigPicture.classList.add('hidden');
   }
 
-  picturesWrapper.addEventListener('click', onPictureClick);
+  // picturesWrapper.addEventListener('click', onPictureClick);
   document.removeEventListener('keydown', onModalEscPress);
 };
 
@@ -57,7 +57,7 @@ const closeModal = () => {
 
   document.removeEventListener('keydown', onModalEscPress);
   modalCloseButton.removeEventListener('click', closeModal);
-  picturesWrapper.addEventListener('click', onPictureClick);
+  // picturesWrapper.addEventListener('click', onPictureClick);
 
 };
 
@@ -76,18 +76,8 @@ const openModal = (photo) => {
 
   document.addEventListener('keydown', onModalEscPress);
   modalCloseButton.addEventListener('click', closeModal);
-  picturesWrapper.removeEventListener('click', onPictureClick);
+  // picturesWrapper.removeEventListener('click', onPictureClick);
 };
 
-const onPictureClick = (evt) => {
-  if (evt.target.classList.contains('picture__img')) {
-    evt.preventDefault();
-    const pictureTag = evt.target.dataset.tag;
-    const selectedPreview = photos.find((photo) => photo.tag === Number(pictureTag));
 
-    openModal(selectedPreview);
-
-  }
-};
-
-picturesWrapper.addEventListener('click', onPictureClick);
+export { picturesWrapper, openModal }

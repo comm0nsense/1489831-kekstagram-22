@@ -12,7 +12,7 @@ const renderPreviews = (data) => {
     pictureElement.querySelector('.picture__comments').textContent = picture.comments.length;
     pictureElement.querySelector('.picture__likes').textContent = picture.likes;
 
-    pictureElement.querySelector('.picture__img').dataset.tag = picture.tag;
+    pictureElement.querySelector('.picture__img').dataset.id = picture.id;
 
     fragment.appendChild(pictureElement);
   });

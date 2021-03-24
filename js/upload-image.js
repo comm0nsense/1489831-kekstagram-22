@@ -86,4 +86,4 @@ const onCancelUpload = () => {
 
 newImage.addEventListener('change', onPictureUpload);
 
-export { imageUploadForm, imageUploadPreview };
+export { imageUploadForm, imageUploadPreview, onCancelUpload };

@@ -121,4 +121,15 @@ const disableFilter = () => {
   effectLevelValue.value = '';
 }
 
-export { enableFilter, disableFilter }
+const resetFilter = () => {
+  sliderContainer.classList.add('hidden');
+  image.className = 'img-upload__preview';
+  image.style.filter = '';
+  imageUploadForm.querySelector('#effect-none').checked = true;
+  effectLevelValue.removeAttribute('min');
+  effectLevelValue.removeAttribute('max');
+  effectLevelValue.removeAttribute('step');
+  effectLevelValue.value = '';
+}
+
+export { enableFilter, disableFilter, resetFilter }
