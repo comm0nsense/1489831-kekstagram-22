@@ -1,7 +1,9 @@
+/* global _:readonly */
 import { getUniqueRandomNumbers } from './util.js';
 import { cleanPreviews, renderPreviews } from './render-previews.js';
 
 const RANDOM_IMAGE_NUMBER = 10;
+const RENDER_DELAY = 500;
 const imageSorting = document.querySelector('.img-filters');
 const imageSortingForm = imageSorting.querySelector('.img-filters__form');
 const defaultImageSort = imageSortingForm.querySelector('#filter-default');
@@ -14,12 +16,11 @@ let discussedImages = [];
 
 const getUniqueRandomImages = (pictures) => {
   const imageIndexes = getUniqueRandomNumbers(RANDOM_IMAGE_NUMBER, 0, pictures.length - 1)
-  // console.log(imageIndexes);
   let randomImages = [];
   for (let i = 0; i < RANDOM_IMAGE_NUMBER; i++) {
     randomImages.push(pictures[imageIndexes[i]])
   }
-  // console.log(randomImages);
+
   return randomImages;
 };
 
@@ -54,7 +55,7 @@ const enableImageSorting = (pictures) => {
   };
 
   imageSorting.classList.remove('img-filters--inactive');
-  imageSortingForm.addEventListener('click', onSortingOptionClick);
+  imageSortingForm.addEventListener('click', _.debounce(onSortingOptionClick, RENDER_DELAY));
 };
 
 
