@@ -1,6 +1,7 @@
 import { isEscEvent } from './util.js';
 import { enableFilter, disableFilter } from './image-filters.js'
 
+
 const ImageScale = {
   MAX: 100,
   MIN: 25,
@@ -15,7 +16,6 @@ const imageUploadCancel = document.querySelector('#upload-cancel');
 const imageScale = imageUpload.querySelector('.scale');
 const scaleControlValue = imageScale.querySelector('.scale__control--value');
 
-// let currentScale = parseInt(scaleControlValue.value);
 let currentScale;
 
 const onImageRescale = (evt) => {
@@ -43,8 +43,6 @@ const onImageRescale = (evt) => {
     }
   }
 };
-
-// imageScale.addEventListener('click', onImageRescale);
 
 
 const onUploadEscKeydown = (evt) => {

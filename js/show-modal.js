@@ -1,13 +1,9 @@
-// import { setDefaults } from './submit-form.js';
 import { onCancelUpload } from './upload-image.js';
 
 const ALERT_SHOW_TIME = 5000;
 const ESC_KEYDOWN = ['Escape', 'Esc'];
 
 const modalContainer = document.querySelector('main');
-// const successButton = document.querySelector('.success__button');
-// const errorButton = document.querySelector('.error_button');
-
 
 const successModalTemplate = document.querySelector('#success')
   .content
@@ -32,7 +28,6 @@ const showModal = (modal) => {
 
   const onCloseModal = () => {
     modal.remove();
-    // setDefaults();
     onCancelUpload();
     modal.removeEventListener('click', onCloseModal);
     document.removeEventListener('keydown', onModalEscKeydown);
