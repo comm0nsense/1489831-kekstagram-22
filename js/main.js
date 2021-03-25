@@ -5,7 +5,6 @@ import { showAlert } from './show-modal.js';
 import { submitForm } from './submit-form.js';
 import { enableImageSorting } from './image-sorting.js';
 import { onFileUpload, pictureChooser } from './file-upload.js';
-import { formValidationHandlers} from './form-validation.js';
 
 const GET_DATA_URL = 'https://22.javascript.pages.academy/kekstagram/data';
 
@@ -34,4 +33,3 @@ picturesWrapper.addEventListener('click', onPictureClick);
 
 pictureChooser.addEventListener('change', onFileUpload);
 
-formValidationHandlers(); // перенести в upload-image

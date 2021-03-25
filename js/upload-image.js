@@ -1,5 +1,6 @@
 import { isEscEvent } from './util.js';
-import { enableFilter, disableFilter } from './image-filters.js'
+import { enableFilter, disableFilter } from './image-filters.js';
+import { formValidationHandlers} from './form-validation.js';
 
 
 const ImageScale = {
@@ -69,6 +70,7 @@ const onPictureUpload = () => {
   imageScale.addEventListener('click', onImageRescale);
 
   enableFilter();
+  formValidationHandlers(); // перенести в upload-image
 };
 
 const onCancelUpload = () => {

@@ -1,5 +1,3 @@
-import { imageUploadForm } from './upload-image.js';
-
 const COMMENT_MAX_LENGTH = 140;
 const HASHTAG_MAX_LENGTH = 20;
 const HASHTAG_MAX_COUNT = 5;
@@ -12,8 +10,8 @@ const validationMessages = {
   content: 'начинается с #, содержит только буквы и цифры, не пустой',
 };
 
-const comment = imageUploadForm.querySelector('.text__description');
-const hashtagInput = imageUploadForm.querySelector('.text__hashtags');
+const comment = document.querySelector('.text__description');
+const hashtagInput = document.querySelector('.text__hashtags');
 
 let hashtags = [];
 
