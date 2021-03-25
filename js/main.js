@@ -4,6 +4,7 @@ import { getData } from './api.js';
 import { showAlert } from './show-modal.js';
 import { submitForm } from './submit-form.js';
 import { enableImageSorting } from './image-sorting.js';
+import { onFileUpload, pictureChooser } from './file-upload.js';
 
 const GET_DATA_URL = 'https://22.javascript.pages.academy/kekstagram/data';
 
@@ -29,6 +30,8 @@ const onPictureClick = (evt) => {
 };
 
 picturesWrapper.addEventListener('click', onPictureClick);
+
+pictureChooser.addEventListener('change', onFileUpload);
 
 
 
