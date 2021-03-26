@@ -70,7 +70,7 @@ const onPictureUpload = () => {
   imageScale.addEventListener('click', onImageRescale);
 
   enableFilter();
-  formValidationHandlers(); // перенести в upload-image
+  formValidationHandlers();
 };
 
 const onCancelUpload = () => {
