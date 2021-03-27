@@ -1,5 +1,6 @@
 import { isEscEvent } from './util.js';
 
+const COMMENTS_NUMBER = 5;
 const bigPicture = document.querySelector('.big-picture');
 const bigPictureImg = bigPicture.querySelector('.big-picture__img img');
 const bigPictureLikes = bigPicture.querySelector('.likes-count');
@@ -14,19 +15,18 @@ const modalCloseButton = document.querySelector('.big-picture__cancel');
 
 const createComments = (comments, number) => {
   bigPictureComments.innerHTML = '';
-  const commentsToShow = comments.slice(0,number);
-  // console.log(commentsToShow);
+  const commentsToShow = comments.slice(0, number);
+
   if (comments) {
     commentsToShow.forEach(comment => {
       const newLi = document.createElement('li');
-
       newLi.classList.add('social__comment');
       newLi.innerHTML = `<img
-      class="social__picture"
-      src="${comment.avatar}"
-      alt="${comment.name}"
-      width="35" height="35>
-      <p class="social__text">${comment.message}</p>`;
+        class="social__picture"
+        src="${comment.avatar}"
+        alt="${comment.name}"
+        width="35" height="35>
+        <p class="social__text">${comment.message}</p>`;
 
       bigPictureComments.appendChild(newLi);
     });
@@ -40,71 +40,60 @@ const openModal = (photo) => {
     if (isEscEvent(evt)) {
       evt.preventDefault();
       bigPicture.classList.add('hidden');
+      document.querySelector('body').classList.remove('modal-open');
     }
 
-    // picturesWrapper.addEventListener('click', onPictureClick);
     document.removeEventListener('keydown', onModalEscPress);
     commentsLoader.removeEventListener('click', onMoreCommentsClick);
   };
 
-  const closeModal = () => {
+  const onCloseModal = () => {
     bigPicture.classList.add('hidden');
-    // document.querySelector('body').classList.remove('modal-open');
-    // bigPicture.querySelector('.social__comment-count').classList.remove('hidden');
-    // bigPicture.querySelector('.social__comments-loader').classList.remove('hidden');
+    document.querySelector('body').classList.remove('modal-open');
     document.removeEventListener('keydown', onModalEscPress);
-    modalCloseButton.removeEventListener('click', closeModal);
+    modalCloseButton.removeEventListener('click', onCloseModal);
     commentsLoader.removeEventListener('click', onMoreCommentsClick);
-    // picturesWrapper.addEventListener('click', onPictureClick);
   };
-
 
   bigPicture.classList.remove('hidden');
-  // document.querySelector('body').classList.add('modal-open');
-  // bigPicture.querySelector('.social__comment-count').classList.add('hidden');
-  // bigPicture.querySelector('.social__comments-loader').classList.add('hidden');
+  document.querySelector('body').classList.add('modal-open');
   bigPictureImg.src = photo.url;
   bigPictureLikes.textContent = photo.likes;
   bigPictureDescription.textContent = photo.description;
   bigPictureCommentsCount.textContent = photo.comments.length;
 
-  if (photo.comments.length < 5) {
+  if (photo.comments.length < COMMENTS_NUMBER) {
     numberOfCommentsLoaded.textContent = photo.comments.length;
     commentsLoader.classList.add('hidden');
   } else {
-    numberOfCommentsLoaded.textContent = '5';
+    numberOfCommentsLoaded.textContent = COMMENTS_NUMBER;
     commentsLoader.classList.remove('hidden');
   }
 
-  createComments(photo.comments, 5);
+  createComments(photo.comments, COMMENTS_NUMBER);
 
   const onMoreCommentsClick = () => {
     const commentsTotal = photo.comments.length;
     const commentsLoaded = bigPictureComments.children.length;
     const commentsBalance = commentsTotal - commentsLoaded;
-    // console.log(`Total: ${commentsTotal}, loaded: ${commentsLoaded}, balance: ${commentsBalance}`);
 
-    if (commentsBalance > 5) {
-      createComments(photo.comments, commentsLoaded + 5);
-      numberOfCommentsLoaded.textContent = `${commentsLoaded +5}`;
-    } else if (commentsBalance === 5) {
-      createComments(photo.comments, commentsLoaded + 5);
-      numberOfCommentsLoaded.textContent = `${commentsLoaded +5}`;
+    if (commentsBalance > COMMENTS_NUMBER) {
+      createComments(photo.comments, commentsLoaded + COMMENTS_NUMBER);
+      numberOfCommentsLoaded.textContent = `${commentsLoaded + COMMENTS_NUMBER}`;
+    } else if (commentsBalance === COMMENTS_NUMBER) {
+      createComments(photo.comments, commentsLoaded + COMMENTS_NUMBER);
+      numberOfCommentsLoaded.textContent = `${commentsLoaded + COMMENTS_NUMBER}`;
       commentsLoader.classList.add('hidden');
     } else {
       createComments(photo.comments, commentsTotal);
       commentsLoader.classList.add('hidden');
       numberOfCommentsLoaded.textContent = `${commentsTotal}`;
     }
-
   };
 
-
   document.addEventListener('keydown', onModalEscPress);
-  modalCloseButton.addEventListener('click', closeModal);
-  // picturesWrapper.removeEventListener('click', onPictureClick);
+  modalCloseButton.addEventListener('click', onCloseModal);
   commentsLoader.addEventListener('click', onMoreCommentsClick);
 };
-
 
 export { picturesWrapper, openModal }

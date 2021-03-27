@@ -11,19 +11,12 @@ const getUniqueRandomNumbers = (length, min, max) => {
     if (arr.indexOf(number) === -1) arr.push(number);
   }
   return arr;
-}
-// Функция возвращающает случайное значение из массива
-const getRandomArrayElement = (array) => {
-  const randomNumber = Math.floor(Math.random() * array.length);
-  return array[randomNumber];
 };
 
 const isEscEvent = (evt) => evt.key === ('Escape' || 'Esc');
 
-
 export {
   getUniqueRandomNumbers,
-  getRandomArrayElement,
   getRandomInt,
   isEscEvent
 };

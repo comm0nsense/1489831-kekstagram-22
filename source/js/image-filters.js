@@ -1,4 +1,5 @@
-/* global noUiSlider:readonly */
+import noUiSlider from 'nouislider';
+import 'nouislider/distribute/nouislider.css';
 import { imageUploadForm } from './upload-image.js';
 
 const image = document.querySelector('.img-upload__preview');
@@ -60,7 +61,6 @@ const onEffectLevelChange = (filter) => {
   });
 
   effectsSlider.noUiSlider.on('update', (values, handle) => {
-    // console.log(values[handle]);
     effectLevelValue.setAttribute('min', `${effects[filter].min}`);
     effectLevelValue.setAttribute('max', `${effects[filter].max}`);
     effectLevelValue.setAttribute('step', `${effects[filter].step}`);
