@@ -8,12 +8,16 @@ const getUniqueRandomNumbers = (length, min, max) => {
   const arr = [];
   while (arr.length < length) {
     const number = getRandomInt(min, max);
-    if (arr.indexOf(number) === -1) arr.push(number);
+    if (arr.indexOf(number) === -1) {
+      arr.push(number)
+    }
   }
   return arr;
 };
 
-const isEscEvent = (evt) => evt.key === ('Escape' || 'Esc');
+const isEscEvent = (evt) => {
+  return evt.key === ('Escape' || 'Esc')
+};
 
 export {
   getUniqueRandomNumbers,
