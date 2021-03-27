@@ -45,7 +45,6 @@ const onImageRescale = (evt) => {
   }
 };
 
-
 const onUploadEscKeydown = (evt) => {
   if (isEscEvent(evt)) {
     evt.preventDefault();

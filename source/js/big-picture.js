@@ -47,11 +47,11 @@ const openModal = (photo) => {
     commentsLoader.removeEventListener('click', onMoreCommentsClick);
   };
 
-  const closeModal = () => {
+  const onCloseModal = () => {
     bigPicture.classList.add('hidden');
     document.querySelector('body').classList.remove('modal-open');
     document.removeEventListener('keydown', onModalEscPress);
-    modalCloseButton.removeEventListener('click', closeModal);
+    modalCloseButton.removeEventListener('click', onCloseModal);
     commentsLoader.removeEventListener('click', onMoreCommentsClick);
   };
 
@@ -92,7 +92,7 @@ const openModal = (photo) => {
   };
 
   document.addEventListener('keydown', onModalEscPress);
-  modalCloseButton.addEventListener('click', closeModal);
+  modalCloseButton.addEventListener('click', onCloseModal);
   commentsLoader.addEventListener('click', onMoreCommentsClick);
 };
 

@@ -11,7 +11,7 @@ const getUniqueRandomNumbers = (length, min, max) => {
     if (arr.indexOf(number) === -1) arr.push(number);
   }
   return arr;
-}
+};
 
 const getRandomArrayElement = (array) => {
   const randomNumber = Math.floor(Math.random() * array.length);

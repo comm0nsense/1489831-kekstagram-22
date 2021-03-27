@@ -1,6 +1,5 @@
 import noUiSlider from 'nouislider';
 import 'nouislider/distribute/nouislider.css';
-// /* global noUiSlider:readonly */
 import { imageUploadForm } from './upload-image.js';
 
 const image = document.querySelector('.img-upload__preview');
