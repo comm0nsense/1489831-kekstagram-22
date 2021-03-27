@@ -13,7 +13,7 @@ const discussedImageSort = imageSortingForm.querySelector('#filter-discussed');
 
 const getUniqueRandomImages = (pictures) => {
   const imageIndexes = getUniqueRandomNumbers(RANDOM_IMAGE_NUMBER, 0, pictures.length - 1)
-  let randomImages = [];
+  const randomImages = [];
   for (let i = 0; i < RANDOM_IMAGE_NUMBER; i++) {
     randomImages.push(pictures[imageIndexes[i]])
   }
@@ -26,7 +26,6 @@ const getMostDiscussedImages = (pictures) => {
   return pictures.slice().sort((a, b) => b.comments.length - a.comments.length);
 
 };
-
 
 const enableImageSorting = (pictures) => {
   const onSortingOptionClick = (evt) => {
@@ -49,6 +48,5 @@ const enableImageSorting = (pictures) => {
   imageSorting.classList.remove('img-filters--inactive');
   imageSortingForm.addEventListener('click', _.debounce(onSortingOptionClick, RENDER_DELAY));
 };
-
 
 export { getUniqueRandomImages, getMostDiscussedImages, enableImageSorting };

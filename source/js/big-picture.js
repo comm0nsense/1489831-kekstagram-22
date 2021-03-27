@@ -62,11 +62,11 @@ const openModal = (photo) => {
   bigPictureDescription.textContent = photo.description;
   bigPictureCommentsCount.textContent = photo.comments.length;
 
-  if (photo.comments.length < 5) {
+  if (photo.comments.length < COMMENTS_NUMBER) {
     numberOfCommentsLoaded.textContent = photo.comments.length;
     commentsLoader.classList.add('hidden');
   } else {
-    numberOfCommentsLoaded.textContent = '5';
+    numberOfCommentsLoaded.textContent = COMMENTS_NUMBER;
     commentsLoader.classList.remove('hidden');
   }
 
@@ -80,8 +80,8 @@ const openModal = (photo) => {
     if (commentsBalance > COMMENTS_NUMBER) {
       createComments(photo.comments, commentsLoaded + COMMENTS_NUMBER);
       numberOfCommentsLoaded.textContent = `${commentsLoaded + COMMENTS_NUMBER}`;
-    } else if (commentsBalance === 5) {
-      createComments(photo.comments, commentsLoaded + 5);
+    } else if (commentsBalance === COMMENTS_NUMBER) {
+      createComments(photo.comments, commentsLoaded + COMMENTS_NUMBER);
       numberOfCommentsLoaded.textContent = `${commentsLoaded + COMMENTS_NUMBER}`;
       commentsLoader.classList.add('hidden');
     } else {

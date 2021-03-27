@@ -48,7 +48,7 @@ const onCommentInput = () => {
   const commentLength = comment.value.length;
 
   if (commentLength > COMMENT_MAX_LENGTH) {
-    comment.setCustomValidity(` Максимум 140 симв. Удалите лишние ${commentLength - COMMENT_MAX_LENGTH} симв.`)
+    comment.setCustomValidity(`Максимум ${COMMENT_MAX_LENGTH} симв. Удалите лишние ${commentLength - COMMENT_MAX_LENGTH} симв.`)
   } else {
     comment.setCustomValidity('');
   }
@@ -63,4 +63,3 @@ const formValidationHandlers = () => {
 };
 
 export { formValidationHandlers };
-

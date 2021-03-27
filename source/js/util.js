@@ -13,16 +13,10 @@ const getUniqueRandomNumbers = (length, min, max) => {
   return arr;
 };
 
-const getRandomArrayElement = (array) => {
-  const randomNumber = Math.floor(Math.random() * array.length);
-  return array[randomNumber];
-};
-
 const isEscEvent = (evt) => evt.key === ('Escape' || 'Esc');
 
 export {
   getUniqueRandomNumbers,
-  getRandomArrayElement,
   getRandomInt,
   isEscEvent
 };
