@@ -1,17 +1,18 @@
 const getData = async (url) => {
-  const response = await fetch(url);
 
-  if (response.ok) {
+  try {
+    const response = await fetch(url);
     const data = await response.json();
+
     return data;
-  } else {
+  } catch (error) {
     throw new Error('Не удается зарузить фотографии. Перезагрузите страницу.');
   }
-
 };
 
 
 const postData = async (url, body) => {
+
   const response = await fetch(
     url,
     {

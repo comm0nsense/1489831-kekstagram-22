@@ -1,7 +1,7 @@
 import { onCancelUpload } from './upload-image.js';
+import { isEscEvent } from './util.js';
 
 const ALERT_SHOW_TIME = 5000;
-const ESC_KEYDOWN = ['Escape', 'Esc'];
 
 const modalContainer = document.querySelector('main');
 
@@ -21,7 +21,7 @@ newErrorModal.style.zIndex = '1000';
 
 const showModal = (modal) => {
   const onModalEscKeydown = (evt) => {
-    if (evt.key === (ESC_KEYDOWN[0] || ESC_KEYDOWN[1])) {
+    if (isEscEvent(evt)) {
       onCloseModal();
     }
   };
@@ -41,11 +41,11 @@ const showModal = (modal) => {
 
 const showAlert = (message) => {
   const alertContainer = document.createElement('div');
-  alertContainer.style.zIndex = 100;
+  alertContainer.style.zIndex = '100';
   alertContainer.style.position = 'absolute';
-  alertContainer.style.left = 0;
-  alertContainer.style.top = 0;
-  alertContainer.style.right = 0;
+  alertContainer.style.left = '0';
+  alertContainer.style.top = '0';
+  alertContainer.style.right = '0';
   alertContainer.style.padding = '10px 3px';
   alertContainer.style.fontSize = '30px';
   alertContainer.style.textAlign = 'center';

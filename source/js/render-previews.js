@@ -5,15 +5,15 @@ const fragment = document.createDocumentFragment();
 
 const renderPreviews = (data) => {
 
-  data.forEach(picture => {
+  data.forEach(({url, comments: {length}, likes, id}) => {
 
     const pictureElement = pictureTemplate.cloneNode(true);
 
-    pictureElement.querySelector('.picture__img').src = picture.url;
-    pictureElement.querySelector('.picture__comments').textContent = picture.comments.length;
-    pictureElement.querySelector('.picture__likes').textContent = picture.likes;
+    pictureElement.querySelector('.picture__img').src = url;
+    pictureElement.querySelector('.picture__comments').textContent = length;
+    pictureElement.querySelector('.picture__likes').textContent = likes;
 
-    pictureElement.querySelector('.picture__img').dataset.id = picture.id;
+    pictureElement.querySelector('.picture__img').dataset.id = id;
 
     fragment.appendChild(pictureElement);
   });

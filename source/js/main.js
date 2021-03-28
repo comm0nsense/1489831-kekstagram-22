@@ -32,4 +32,3 @@ const onPictureClick = (evt) => {
 picturesWrapper.addEventListener('click', onPictureClick);
 
 pictureChooser.addEventListener('change', onFileUpload);
-

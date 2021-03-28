@@ -1,3 +1,5 @@
+const ESC_KEYDOWN = ['Escape', 'Esc'];
+
 const getRandomInt = (min, max) => {
   min = Math.ceil(min);
   max = Math.floor(max);
@@ -16,7 +18,8 @@ const getUniqueRandomNumbers = (length, min, max) => {
 };
 
 const isEscEvent = (evt) => {
-  return evt.key === ('Escape' || 'Esc')
+
+  return (evt.key === ESC_KEYDOWN[0] || evt.key === ESC_KEYDOWN[1]);
 };
 
 export {

@@ -21,14 +21,18 @@ const createComments = (comments, number) => {
     commentsToShow.forEach(comment => {
       const newLi = document.createElement('li');
       newLi.classList.add('social__comment');
-      newLi.innerHTML = `<img
-        class="social__picture"
-        src="${comment.avatar}"
-        alt="${comment.name}"
-        width="35" height="35>
-        <p class="social__text">${comment.message}</p>`;
-
       bigPictureComments.appendChild(newLi);
+      const img = document.createElement('img');
+      img.className = 'social__picture';
+      img.src = `${comment.avatar}`;
+      img.alt = `${comment.name}`;
+      img.width = 35;
+      img.height = 35;
+      const commentText = document.createElement('p');
+      commentText.className = 'social__text';
+      commentText.textContent = `${comment.message}`;
+      newLi.appendChild(img);
+      newLi.appendChild(commentText);
     });
   }
 };
@@ -62,7 +66,7 @@ const openModal = (photo) => {
   bigPictureDescription.textContent = photo.description;
   bigPictureCommentsCount.textContent = photo.comments.length;
 
-  if (photo.comments.length < COMMENTS_NUMBER) {
+  if (photo.comments.length <= COMMENTS_NUMBER) {
     numberOfCommentsLoaded.textContent = photo.comments.length;
     commentsLoader.classList.add('hidden');
   } else {
